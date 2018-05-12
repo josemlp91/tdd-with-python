@@ -21,6 +21,9 @@ RUN apt-get install -y \
     gettext \
     vim
 
+RUN apt-get install -y unzip
+
+
 # Add source code.
 ADD . /src/
 

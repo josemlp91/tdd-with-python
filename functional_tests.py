@@ -1,6 +1,6 @@
 from selenium import webdriver 
 
-browser = webdriver.Firefox()
+browser =  webdriver.Chrome("/usr/local/bin/chromedriver")
 
 try:
     browser.get("http://localhost:8000")
