@@ -7,6 +7,9 @@ sudo: required
 python:
   - 3.6
 
+services: postgresql
+
+
 before_install:
   - export DJANGO_SETTINGS_MODULE=superlists.settings  
   - export PIP_USE_MIRRORS=true
@@ -14,6 +17,10 @@ before_install:
 
 install:
   - ./install_requirements.sh
+
+before_script:
+- psql -c "CREATE DATABASE mydb;" -U postgres
+- ./migrate_db.sh
 
 script:
   - ./run_unit_tests.sh
