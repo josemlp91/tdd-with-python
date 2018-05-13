@@ -2,20 +2,17 @@ language: python
 sudo: required
 python:
   - 3.6
-services: mysql
+services: postgresql
 before_install:
   - export DJANGO_SETTINGS_MODULE=superlists.settings
   - export PIP_USE_MIRRORS=true
   - export TRAVIS=true
-  - export TRAVIS_DATABASE_NAME=traviscidb
-  - export TRAVIS_DATABASE_USER=root
-  - export TRAVIS_DATABASE_PASS=123
+  - export TRAVIS_DATABASE_NAME=travisci
+  - export TRAVIS_DATABASE_USER=postgres
 install:
-  - sudo apt-get install python3-dev libmysqlclient-dev  
   - "./install_requirements.sh"
 before_script:
-  - echo "USE mysql;\nUPDATE user SET password=$TRAVIS_DATABASE_PASS WHERE user='$TRAVIS_DATABASE_USER';\nFLUSH PRIVILEGES;\n" | mysql -u $TRAVIS_DATABASE_USER
-  - echo "CREATE DATABASE $TRAVIS_DATABASE_NAME;" | mysql -u $TRAVIS_DATABASE_USER
+  - psql -c "CREATE DATABASE travisci;" -U postgres
   - "./migrate_db.sh"
 script:
   - "./run_unit_tests.sh"
