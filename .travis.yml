@@ -28,6 +28,13 @@ before_script:
 script:
   - ./run_unit_tests.sh
 
+deploy:
+  provider: heroku
+  api_key:
+    secure: F2R5Rp+te5gNfQs7zsa6fmr7AT+rFVMzGTeWLSJn2A2pGe0SuQxVii+YBkIDTY7zQ9QuS9QLM3A+jPZPA+nF1mG71djxLGvd21CNSrVW/ORRml3BAnJjN7VIPkSILg/jCaUsTHsLXEVQ591eciXZUNcIpViH3JNKljn1KaS8sQ1qkwEvUPHJO0Bq1ocINjHrKZGfk53fHhdRqoI40X8494/1HQp7lBvIFMOdkUZDZzMTV7R9dIon1K9xIRqajrnLMDKwl10bmI9hJ8m+Fg27elmcZyPG8obU2RKhROolLjLrA7Z7lsV3YcYcyQF6+i+G+IlcfbLlUDlmbsicnAhFjLKuwz2K3LKowG7EBN4zR7gUSmZCIMrJpTpD7lIhyllHIf+gBgMyXaLoOwB9CQ+hpfM48QK5lENTqR+djXuLBx79dQibALCBI+zbQUf2ISFvNgS9/fmrgyaxZRCio/yAK44bGum6NIWY9bpZyyWLHcXt1xmjFykfkb9AbIkjyONV7UcbqChWgrdT646trv/UloERVXP3hrS3cN96WEta3ZwOKA01NPpK1nFK/uphZH8fCiMe5HYYasFXszPRcFFMVzIqJWWidzDF0W/JDrpl7CquJriO9PWWR5FYKDLB4n62rIoqZgFWFGIPP/B5B4gyhXpla4l7cUsXTngKzZL8+QI=
+  app: tdd-with-python
+  on:
+    repo: josemlp91/tdd-with-python
 
 notifications:
   email:
