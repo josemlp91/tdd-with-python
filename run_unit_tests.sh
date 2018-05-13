@@ -1,1 +1,1 @@
-python ./superlists/manage.py test lists
+python manage.py test lists
