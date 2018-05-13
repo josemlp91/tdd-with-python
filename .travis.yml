@@ -1,29 +1,28 @@
 language: python
 sudo: required
 python:
-- 3.6
+  - 3.6
 services: mysql
 before_install:
-- export DJANGO_SETTINGS_MODULE=superlists.settings
-- export PIP_USE_MIRRORS=true
-- export TRAVIS=true
-- export TRAVIS_DATABASE_NAME=traviscidb
-- export TRAVIS_DATABASE_USER=travisciuser
-- export TRAVIS_DATABASE_PASS=123
+  - export DJANGO_SETTINGS_MODULE=superlists.settings
+  - export PIP_USE_MIRRORS=true
+  - export TRAVIS=true
+  - export TRAVIS_DATABASE_NAME=traviscidb
+  - export TRAVIS_DATABASE_USER=root
+  - export TRAVIS_DATABASE_PASS=123
 install:
-- sudo apt-get install python3-dev libmysqlclient-dev  
-- "./install_requirements.sh"
+  - sudo apt-get install python3-dev libmysqlclient-dev  
+  - "./install_requirements.sh"
 before_script:
-- mysql -e 'CREATE USER 'travisciuser'@'localhost' IDENTIFIED BY '1234';' 
-- mysql -e 'CREATE DATABASE travisci;'
-- mysql GRANT ALL PRIVILEGES ON * . * TO 'travisciuser'@'localhost';
-- "./migrate_db.sh"
+  - echo "USE mysql;\nUPDATE user SET password=$TRAVIS_DATABASE_PASS WHERE user='$TRAVIS_DATABASE_USER';\nFLUSH PRIVILEGES;\n" | mysql -u $TRAVIS_DATABASE_USER
+  - echo "CREATE DATABASE $TRAVIS_DATABASE_NAME;" | mysql -u $TRAVIS_DATABASE_USER
+  - "./migrate_db.sh"
 script:
-- "./run_unit_tests.sh"
+  - "./run_unit_tests.sh"
 notifications:
   email:
     recipients:
-    - josmilope@gmail.com
+      - josmilope@gmail.com
     on_success: always
     on_failure: alway
 deploy:
