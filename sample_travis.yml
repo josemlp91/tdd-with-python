@@ -2,6 +2,8 @@
 
 language: python
 
+sudo: required
+
 python:
   - 3.6
 
@@ -17,4 +19,9 @@ install:
 script:
   - ./run_unit_tests.sh
 
-  
+deploy:
+  provider: heroku
+  api_key: ...  
+
+notifications:
+email: true
