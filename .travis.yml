@@ -10,7 +10,7 @@ before_install:
   - export PIP_USE_MIRRORS=true
 
 install:
-  - pip install -r ./superlists/requirements.txt
+  - pip install -r requirements.txt
 
 script:
   - ./run_unit_tests.sh
