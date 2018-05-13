@@ -28,6 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+if os.environ.get('TRAVIS'):
+    print("-------------- Run in Travis CI --------------")
+
 # Application definition
 
 INSTALLED_APPS = [
