@@ -14,12 +14,15 @@ before_install:
   - export DJANGO_SETTINGS_MODULE=superlists.settings  
   - export PIP_USE_MIRRORS=true
   - export TRAVIS=true
+  
+  - export TRAVIS_DATABASE_NAME=travisci
+  - export TRAVIS_DATABASE_USER=postgres
 
 install:
   - ./install_requirements.sh
 
 before_script:
-- psql -c "CREATE DATABASE mydb;" -U postgres
+- psql -c "CREATE DATABASE $TRAVIS_DATABASE_USER;" -U postgres
 - ./migrate_db.sh
 
 script:
