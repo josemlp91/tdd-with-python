@@ -23,5 +23,8 @@ notifications:
     on_success: always
     on_failure: alway
 deploy:
+  provider: heroku
+  app: tdddjango 
   api_key:
     secure: KqevOxvZ29NMun+UeBXuwPm+U2dTfNnKAE6l6lg5qqsUtYEfJA8kcytwW0rF47XrdFk/3Kuut3D9NuP49TmrgLSIjypoGnEtU7BszTaTFOJT0iQGksMZl/0g44Qw42ZuVZ8M3n67b7VLyEOEaJAN24Pi2NJdfqbUEnx2TZRDRk2buiwSW7BulchOzp5SD/Ky/7g+gTBvWaGC0JgHmwpqcEC132/ViKYnMUHOeyutCe7XBvFSlkAVykhySx6tRBafaLUFFLj2bgKuUsQ0WAB4Jt+reajxhFSgP0+njLZ+g7s81r8IkjuQQ5xmLHwBUvMwNVfhOM1/G7TZ583TTFAgbaDr9Y6McB856J9XsqxVKNApq8D481sdKovTifb6wRDhIrjsfeasBaPeqUGXvt0wmnYRhNVjB1wzz0W0z1tLo793H7zDU1mqCKd+J9nChK9wTLWm4oj0I0Rk6iI58QTm4hswBpKhjYbaXb9yQluub0NF/POcyzYYrDjkBwT0tWKO/rHbNTx65GJOs2fxCn+1OwaTfbfmfXIIYsadKN+3xZ00FzVWILVTyowLTfZqB1TxN7Au1d5JlEdkIKjlAt035MVlvdWPtVIve4zgyxsVcpsH8/BlCB76Jz67Omop+rMGydP/QU8Z9tCwh72ufphwDX0SRXydobRPrU5qrp5T+eE=
+    
