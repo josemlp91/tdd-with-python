@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'superlists.wsgi.application'
 if 'TRAVIS' in os.environ:
     DATABASES = {
         'default': {
-            'ENGINE':   'django.db.backends.postgresql_psycopg2',
+            'ENGINE':   'django.db.backends.mysql',
             'NAME':     os.environ.get('TRAVIS_DATABASE_NAME'),
             'USER':     os.environ.get('TRAVIS_DATABASE_USER'),
-            'PASSWORD': '',
+            'PASSWORD': os.environ.get('TRAVIS_DATABASE_PASS'),
             'HOST':     'localhost',
             'PORT':     '',
         }
