@@ -9,6 +9,7 @@ before_install:
   - export TRAVIS=true
   - export TRAVIS_DATABASE_NAME=travisci
   - export TRAVIS_DATABASE_USER=postgres
+  - export DATABASE_URL=postgres://postgres@localhost/travisci
 install:
   - "./install_requirements.sh"
 before_script:
