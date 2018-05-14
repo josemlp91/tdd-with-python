@@ -20,3 +20,10 @@ Proyecto de aprendizaje de la filosofia TDD, unido a Docker y el editor Visual S
 ## Travis CI
 
 ![](https://i.imgur.com/5JpivPd.png)
+
+
+## Heroku 
+
+Para intalar Heroku CLI usar:
+
+    curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
