@@ -80,19 +80,7 @@ WSGI_APPLICATION = 'superlists.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-if 'TRAVIS' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE':   'django.db.backends.postgresql_psycopg2',
-            'NAME':     os.environ.get('TRAVIS_DATABASE_NAME'),
-            'USER':     os.environ.get('TRAVIS_DATABASE_USER'),
-            'PASSWORD': '',
-            'HOST':     'localhost',
-            'PORT':     '',
-        }
-    }
-
-if 'HEROKU' in os.environ:
+if os.environ in['HEROKU', 'TRAVIS']:
     DATABASES = {
         'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
