@@ -20,5 +20,4 @@ from lists import views as lists_views
 urlpatterns = [
     path('', lists_views.home_page),
     path('admin/', admin.site.urls),
-    
 ]

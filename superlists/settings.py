@@ -87,7 +87,7 @@ if os.environ in['HEROKU', 'TRAVIS']:
         'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
 
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+  
 
 
 else:
@@ -136,6 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Nose Test Runner
 
